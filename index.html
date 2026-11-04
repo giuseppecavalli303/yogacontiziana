@@ -104,14 +104,19 @@ section{padding:88px 0}
 .intro h2{font-size:clamp(1.9rem, 3.6vw, 2.7rem);margin:10px 0 14px}
 .intro p{color:var(--muted)}
 .pratiche{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:30px 28px;box-shadow:var(--shadow)}
-.card .icona{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--soft);color:var(--ink);margin-bottom:18px}
-.card .icona svg{width:28px;height:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:0 28px 28px;box-shadow:var(--shadow);overflow:hidden}
+.card-foto{display:block;width:calc(100% + 56px);height:auto;margin:0 -28px 22px;aspect-ratio:4/3;object-fit:cover;background:var(--bg2)}
+.card h3::before{content:"";display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--soft);margin-right:.45em;vertical-align:.12em;box-shadow:0 0 0 4px color-mix(in srgb, var(--soft) 45%, transparent)}
 .card h3{font-size:1.55rem;margin-bottom:10px}
 .card p{color:var(--muted);font-size:1rem}
 .card .dove{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink);font-weight:500}
 .c-yoga{--soft:var(--rose)} .c-post{--soft:var(--lav)} .c-mind{--soft:var(--lilac)}
 @media (max-width:860px){.pratiche{grid-template-columns:1fr}}
+
+/* Galleria */
+.galleria{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.galleria img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:var(--bg2)}
+@media (max-width:860px){.galleria{grid-template-columns:repeat(2,1fr);gap:10px}.galleria img{border-radius:14px}}
 
 /* Orario */
 .orario-sez{background:var(--bg2)}
@@ -142,7 +147,10 @@ section{padding:88px 0}
 
 /* Chi sono */
 .chi-sez{background:var(--bg2)}
-.chi{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.chi{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.chi-foto{margin:0;position:sticky;top:96px}
+.chi-foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
+.chi .titoli{margin-top:32px}
 .chi .testo p+p{margin-top:16px}
 .chi .testo p{color:var(--muted)}
 .chi .testo p:first-of-type{color:var(--ink);font-size:1.15rem}
@@ -153,7 +161,7 @@ section{padding:88px 0}
 .titoli li:first-child{border-top:0;padding-top:0}
 .titoli .anno{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600}
 .titoli small{display:block;color:var(--muted);font-size:.86rem}
-@media (max-width:860px){.chi{grid-template-columns:1fr;gap:32px}}
+@media (max-width:860px){.chi{grid-template-columns:1fr;gap:32px}.chi-foto{position:static;max-width:420px}}
 
 /* Come iniziare */
 .passi{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:passo}
@@ -239,23 +247,29 @@ footer a{color:var(--muted)}
       </div>
       <div class="pratiche">
         <article class="card c-yoga">
-          <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7v6M5 10l7 3 7-3M8 20l4-7 4 7"/></svg></div>
+          <img class="card-foto" src="foto/yoga-triangolo.jpg" alt="Tiziana nella posizione del triangolo" width="960" height="720" loading="lazy">
           <h3>Yoga</h3>
           <p>Hatha yoga con elementi di Ashtanga, Sivananda e Vinyasa flow: posizioni, respiro e rilassamento, adatti a ogni livello.</p>
           <p class="dove">Lunedì e mercoledì sera, su Zoom</p>
         </article>
         <article class="card c-post">
-          <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="3" rx="1.5"/><rect x="8.5" y="7.5" width="7" height="3" rx="1.5"/><rect x="8" y="12" width="8" height="3" rx="1.5"/><rect x="9" y="16.5" width="6" height="3" rx="1.5"/></svg></div>
+          <img class="card-foto" src="foto/posturale-dea.jpg" alt="Tiziana in piegamento a gambe aperte con le braccia alzate" width="960" height="720" loading="lazy">
           <h3>Posturale</h3>
           <p>Ginnastica posturale preventiva e antalgica, per una schiena più libera, articolazioni mobili e meno tensioni nella vita di tutti i giorni.</p>
           <p class="dove">Martedì e giovedì: al mattino in presenza, la sera su Zoom</p>
         </article>
         <article class="card c-mind">
-          <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4.5-2-7-5.5-7-9.5 2.5 0 5 1 7 3.5 2-2.5 4.5-3.5 7-3.5 0 4-2.5 7.5-7 9.5Z"/><path d="M12 15c-1.6-2.2-1.6-6 0-10 1.6 4 1.6 7.8 0 10Z"/></svg></div>
+          <img class="card-foto" src="foto/mindfulness-saluto.jpg" alt="Tiziana con le mani giunte davanti al petto" width="960" height="720" loading="lazy">
           <h3>Mindfulness</h3>
           <p>Un percorso mensile di attenzione e consapevolezza, con una meditazione guidata del mese da ascoltare quando vuoi.</p>
           <p class="dove">Nell'app Mandala, ai tuoi tempi</p>
         </article>
+      </div>
+      <div class="galleria">
+        <img src="foto/yoga-equilibrio.jpg" alt="Tiziana in equilibrio sulle braccia con una gamba tesa verso l'alto" width="900" height="675" loading="lazy">
+        <img src="foto/posturale-allungamento.jpg" alt="Tiziana in allungamento laterale in piedi" width="900" height="675" loading="lazy">
+        <img src="foto/posturale-affondo.jpg" alt="Tiziana in affondo sul tappetino, con un gatto accanto" width="900" height="675" loading="lazy">
+        <img src="foto/posturale-spalle.jpg" alt="Tiziana a gambe aperte con le braccia piegate in alto" width="900" height="675" loading="lazy">
       </div>
     </div>
   </section>
@@ -309,6 +323,8 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="intro"><p class="eyebrow">Chi sono</p><h2>Tiziana Amico</h2></div>
       <div class="chi">
+        <figure class="chi-foto"><img src="foto/tiziana-yoga.jpg" alt="Tiziana sorridente nella posizione dell'albero davanti a una vetrina con la scritta Yoga" width="900" height="1125" loading="lazy"></figure>
+        <div>
         <div class="testo">
           <p>Vengo dalla danza: mi sono diplomata all'Accademia Nazionale di Danza di Roma e ho danzato per diversi coreografi prima di dedicarmi all'insegnamento.</p>
           <p>Dal 2015 insegno yoga e ginnastica posturale a Roma, in palestre, associazioni e scuole di danza. Seguo gruppi e lezioni individuali, adulti e bambini, donne in gravidanza e nel recupero dopo il parto.</p>
@@ -322,6 +338,7 @@ footer a{color:var(--muted)}
             <li><span class="anno">2015</span><span>Laurea di I livello in danza<small>Accademia Nazionale di Danza, Roma</small></span></li>
             <li><span class="anno">2015</span><span>Certificato di insegnante di yoga<small>Centro Hara Benessere, Roma</small></span></li>
           </ul>
+        </div>
         </div>
       </div>
     </div>
