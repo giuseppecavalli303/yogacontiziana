@@ -1,6 +1,6 @@
 # Sito Yoga con Tiziana
 
-Sito vetrina di Tiziana Amico (yoga, posturale, mindfulness). Sarà su https://yogacontiziana.it.
+Sito vetrina di Tiziana Amico (yoga, posturale, mindfulness). Online su https://yogacontiziana.it (GitHub Pages; DNS su OVH: 4 record A verso GitHub, www CNAME giuseppecavalli303.github.io; posta e Brevo invariati).
 L'app delle allieve è un progetto separato: https://mandala.yogacontiziana.it (repository `bindu`).
 
 - Un solo file `index.html`, senza build. Font in `font/` (ospitati qui: niente cookie, niente servizi esterni).
